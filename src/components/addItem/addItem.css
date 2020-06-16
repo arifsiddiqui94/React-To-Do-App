@@ -1,0 +1,25 @@
+.inputContainer {
+    width: 50%;
+    margin: auto;
+    margin-bottom: 6%;
+}
+
+.inputContainer input[type="text"] {
+    border: 2px solid cadetblue;
+    border-radius: 4px;
+    width: 85%;
+    height: 39px;
+    padding-left: 8px;
+    box-sizing: border-box;    
+}
+
+.inputContainer button {
+    background-color: cadetblue;
+    border: 0;
+    height: 39px;
+    width: 13%;
+    color: white;
+    border-radius: 4px;
+    margin-left: 5px;
+    cursor: pointer;
+}

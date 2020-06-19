@@ -1,0 +1,31 @@
+.Modal {
+    position: absolute;
+    z-index: 500;
+    background-color: white;
+    width: 350px;
+    border: 1px solid #ccc;
+    padding: 8px;
+    left: 25%;
+    top: -38px;
+    box-sizing: border-box;
+    transition: all 0.3s ease-out;
+    height: 130px;
+    border-radius: 4px;
+}
+
+.Modal p {
+    margin-top: 0px;
+}
+
+.Modal input[type="text"] {
+    width: 99%;
+    margin-bottom: 15px;
+}
+
+.buttonContainer {
+    text-align: right;
+}
+
+.buttonContainer button:nth-child(1) {
+    margin-right: 10px;
+}

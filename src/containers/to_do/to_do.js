@@ -7,8 +7,9 @@ import Header from '../../components/header/header';
 class To_do extends Component {
     state = {
         items: [],
-        newItem: ""
-
+        newItem: "",
+        showModal:false,
+        showBackdrop:false
     }
 
     inputChangeHandler = (event) => {
@@ -20,7 +21,9 @@ class To_do extends Component {
     addItemHandler = () => {
         let checkItem = {
             value: this.state.newItem,
-            checked: false
+            checked: false,
+            showModal:false,
+            showBackdrop: false,
         }
         const newItems = [...this.state.items, checkItem];
         this.setState({
@@ -48,6 +51,38 @@ class To_do extends Component {
         // 5. Set the state to our new copy
         this.setState({ items });
     }
+
+    editHandler = (index) => {
+        let modal = [...this.state.items];
+        let individualModal = { ...modal[index] };
+        individualModal.showModal = !individualModal.showModal;
+        individualModal.showBackdrop = !individualModal.showBackdrop;
+        modal[index] = individualModal;
+        this.setState({
+            items:modal,
+            showModal: modal,
+            showBackdrop:modal
+        })
+    }
+
+    closeModal = (index) => {
+        let close = [...this.state.items];
+        let closeModal = { ...close[index] };
+        closeModal.showModal = false;
+        closeModal.showBackdrop = false;
+        close[index] = closeModal;
+        console.log(close, closeModal.showModal);
+        this.setState({
+            items: close,
+            showModal:closeModal,
+            showBackdrop:closeModal
+        })
+    }
+
+    editValue = () => {
+        console.log('value changed')
+    }
+
     render() {
         return (
             <Auxiliary>
@@ -61,6 +96,11 @@ class To_do extends Component {
                     deleteItem={this.deleteItemHandler}
                     checkboxHandler={this.checkboxHandler}
                     checked={this.state.checked}
+                    edit={this.editHandler}
+                    showModal={this.state.showModal}
+                    closeModal={this.closeModal}
+                    showBackdrop={this.state.showBackdrop}
+                    editValue={this.editValue}
                 />
             </Auxiliary>
         );
